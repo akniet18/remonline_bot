@@ -187,13 +187,8 @@ bot.on('message', async (ctx)=>{
                         users[txt]['uuid'] = ctx.chat.id
                         fs.writeFileSync('user.json', JSON.stringify(users));
                     }
-                }else if ("87006008682" == txt){
-                    if (users[txt].uuid != 0){
-
-                    }else{
-                        users[txt]['uuid'] = ctx.chat.id
-                        fs.writeFileSync('user.json', JSON.stringify(users));
-                    }
+                }else if (users["87006008682"].uuid == ctx.chat.id){
+                    
                 }else{
                     users[txt]['uuid'] = ctx.chat.id
                     fs.writeFileSync('user.json', JSON.stringify(users));
