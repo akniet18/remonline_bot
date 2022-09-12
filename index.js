@@ -79,10 +79,7 @@ bot.on('message', async (ctx)=>{
                         })
                     }
                 }
-                if (users[txt]['uuid'] == 0){
-                    users[txt]['uuid'] = ctx.chat.id
-                    fs.writeFileSync('user.json', JSON.stringify(users));
-                }
+                
             }else if ("director" in users[txt]){ // director
                 let all_sum = 0
                 let all_cost = 0
@@ -116,10 +113,7 @@ bot.on('message', async (ctx)=>{
                         "\nРеинвистиция: " + splitNumber(investment)
                     )
                 }, 3000);
-                if (users[txt]['uuid'] == 0){
-                    users[txt]['uuid'] = ctx.chat.id
-                    fs.writeFileSync('user.json', JSON.stringify(users));
-                }
+
             }else if("stores" in users[txt]){  // curator
                 let stores = users[txt]['stores']
                 let store_names = []
@@ -150,12 +144,7 @@ bot.on('message', async (ctx)=>{
                             "\nРеинвистиция: " + splitNumber(r.investment)
                         )   
                     })
-                }
-                if (users[txt]['uuid'] == 0){
-                    users[txt]['uuid'] = ctx.chat.id
-                    fs.writeFileSync('user.json', JSON.stringify(users));
-                }
-                
+                }                
             }else{
                 let store_id = users[txt]['store_id']
                 let store_name = ''
@@ -182,11 +171,34 @@ bot.on('message', async (ctx)=>{
                         "\nРеинвистиция: " + splitNumber(r.investment)
                     )
                 })
-                if (users[txt]['uuid'] == 0){
+            }      
+            if (users[txt]['uuid'] == 0){
+                if ("director" in users[txt]){
+                    if (users[txt].uuid != 0){
+
+                    }else{
+                        users[txt]['uuid'] = ctx.chat.id
+                        fs.writeFileSync('user.json', JSON.stringify(users));
+                    }
+                }else if ("booker" in users[txt]){
+                    if (users[txt].uuid != 0){
+
+                    }else{
+                        users[txt]['uuid'] = ctx.chat.id
+                        fs.writeFileSync('user.json', JSON.stringify(users));
+                    }
+                }else if ("87006008682" == txt){
+                    if (users[txt].uuid != 0){
+
+                    }else{
+                        users[txt]['uuid'] = ctx.chat.id
+                        fs.writeFileSync('user.json', JSON.stringify(users));
+                    }
+                }else{
                     users[txt]['uuid'] = ctx.chat.id
                     fs.writeFileSync('user.json', JSON.stringify(users));
                 }
-            }            
+            }      
         }else{
             ctx.reply('User not found')
         }
