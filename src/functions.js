@@ -84,7 +84,7 @@ async function get_retail_sale(id, istoday, every_day, every_month, api_token, d
 function get_this_month(){
     let today = new Date()
     today.setHours(23, 59, 0, 0)
-    today.setDate(new Date().getDate()+1)
+    today.setDate(new Date().getDate())
     let today_start = new Date()
     today_start.setHours(0, 0, 0, 0)
     console.log(today_start, today, today_start.getTime(), today.getTime())
@@ -94,6 +94,7 @@ function get_this_month(){
     yesterday_start.setDate(yesterday_start.getDate()-1)
     let yesterday_end = new Date()
     yesterday_end.setHours(23, 59, 0, 0)
+    yesterday_end.setDate(today.getDate()-1)
     console.log(yesterday_start, yesterday_end, yesterday_start.getTime(), yesterday_end.getTime())
 
     let start_this_month = new Date(new Date().setDate(1))
