@@ -115,9 +115,9 @@ function get_this_month(){
 }
 
 // */5 * * * * *
-// 0 10 * * *
+// 0 0 10 * * *
 function send_data_every_day(bot, users){
-    var job = new CronJob('0 10 * * *', async function() {
+    var job = new CronJob('0 0 10 * * *', async function() {
         const res = await axios.post(url+"token/new?api_key="+api_key)
         let api_token = res.data.token
         let w = await axios.get(url+"warehouse/?token="+api_token)
@@ -220,9 +220,9 @@ function send_data_every_day(bot, users){
 }
 
 // */5 * * * * *
-// 0 10 1 */1 *
+// 0 0 10 1 */1 *
 function send_data_every_month(bot, users){
-    var job = new CronJob('0 10 1 */1 *', async function() {
+    var job = new CronJob('0 0 10 1 */1 *', async function() {
         const res = await axios.post(url+"token/new?api_key="+api_key)
         let api_token = res.data.token
         console.log(api_token)
