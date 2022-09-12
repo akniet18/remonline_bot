@@ -37,8 +37,16 @@ bot.on('message', async (ctx)=>{
     if (/^[\d.,:]*$/.test(txt)){
         for (let l in users){
             if (users[l].uuid == ctx.chat.id){
-                ctx.reply('Вы уже зарегистрировали номер ' + [l])
-                return
+                if ('director' in users[l]){
+
+                }else if ('booker' in users[l]){
+
+                }else if ('87006008682' == l){
+
+                }else{
+                    ctx.reply('Вы уже зарегистрировали номер ' + [l])
+                    return
+                }
             }
         }
         try{
