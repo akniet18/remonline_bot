@@ -33,25 +33,25 @@ bot.start((ctx) => {
 
 bot.on('message', async (ctx)=>{
     let txt = ctx.message.text
-    try{
-        let res = await axios.get(url+"warehouse/?token="+api_token)
-    }
-    catch(e){
-        let aut = await axios.post(url+"token/new?api_key="+api_key)
-        api_token = aut.data.token
-        let wh = await axios.get(url+"warehouse/?token="+api_token)
-        warehouses = wh.data.data
-        console.log(api_token)
-    }
     let date = get_this_month()
     if (/^[\d.,:]*$/.test(txt)){
-        if (txt in users){
-            for (let l in users){
-                if (users[l].uuid == ctx.chat.id){
-                    ctx.reply('Вы уже ввели номер телефона.')
-                    return
-                }
+        for (let l in users){
+            if (users[l].uuid == ctx.chat.id){
+                ctx.reply('Вы уже ввели номер телефона.')
+                return
             }
+        }
+        try{
+            let res = await axios.get(url+"warehouse/?token="+api_token)
+        }
+        catch(e){
+            let aut = await axios.post(url+"token/new?api_key="+api_key)
+            api_token = aut.data.token
+            let wh = await axios.get(url+"warehouse/?token="+api_token)
+            warehouses = wh.data.data
+            console.log(api_token)
+        }
+        if (txt in users){
             if ("booker" in users[txt]){  // booker
                 for (let k of warehouses){
                     if (k.title == "Склад 2" || k.title == "Склад" || k.title == "Склад товаров"){
