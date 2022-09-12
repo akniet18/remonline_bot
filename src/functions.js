@@ -133,7 +133,7 @@ function send_data_every_day(bot, users){
                             "\nСумма: " + splitNumber(r.all_sum) + 
                             "\nСебестоимость: " + splitNumber(r.all_cost) +
                             "\nПрибыль: " + splitNumber(r.all_profit) +
-                            "\nСебестоимость: " + splitNumber(r.china) +
+                            "\RКитай: " + splitNumber(r.china) +
                             "\nРасходники: " + splitNumber(r.consumables) +
                             "\nРеинвистиция: " + splitNumber(r.investment),
                             { parse_mode: 'HTML'}
@@ -149,7 +149,7 @@ function send_data_every_day(bot, users){
                                 "\nСумма: " + splitNumber(r.all_sum) + 
                                 "\nСебестоимость: " + splitNumber(r.all_cost) +
                                 "\nПрибыль: " + splitNumber(r.all_profit) +
-                                "\nСебестоимость: " + splitNumber(r.china) +
+                                "\RКитай: " + splitNumber(r.china) +
                                 "\nРасходники: " + splitNumber(r.consumables) +
                                 "\nРеинвистиция: " + splitNumber(r.investment),
                                  { parse_mode: 'HTML'}
@@ -185,7 +185,7 @@ function send_data_every_day(bot, users){
                             "\nСумма: " + splitNumber(all_sum) + 
                             "\nСебестоимость: " + splitNumber(all_cost) +
                             "\nПрибыль: " + splitNumber(all_profit)+
-                            "\nСебестоимость: " + splitNumber(china) +
+                            "\RКитай: " + splitNumber(china) +
                             "\nРасходники: " + splitNumber(consumables) +
                             "\nРеинвистиция: " + splitNumber(investment), 
                             { parse_mode: 'HTML'}
@@ -204,7 +204,7 @@ function send_data_every_day(bot, users){
                                     "\nСумма: " + splitNumber(r.all_sum) + 
                                     "\nСебестоимость: " + splitNumber(r.all_cost) +
                                     "\nПрибыль: " + splitNumber(r.all_profit) +
-                                    "\nСебестоимость: " + splitNumber(r.china) +
+                                    "\RКитай: " + splitNumber(r.china) +
                                     "\nРасходники: " + splitNumber(r.consumables) +
                                     "\nРеинвистиция: " + splitNumber(r.investment), 
                                     { parse_mode: 'HTML'}
@@ -240,7 +240,7 @@ function send_data_every_month(bot, users){
                             "\nСумма: " + splitNumber(r.all_sum) + 
                             "\nСебестоимость: " + splitNumber(r.all_cost) +
                             "\nПрибыль: " + splitNumber(r.all_profit) +
-                            "\nСебестоимость: " + splitNumber(r.china) +
+                            "\RКитай: " + splitNumber(r.china) +
                             "\nРасходники: " + splitNumber(r.consumables) +
                             "\nРеинвистиция: " + splitNumber(r.investment)
                             , { parse_mode: 'HTML'}
@@ -256,7 +256,7 @@ function send_data_every_month(bot, users){
                                 "\nСумма: " + splitNumber(r.all_sum) + 
                                 "\nСебестоимость: " + splitNumber(r.all_cost) +
                                 "\nПрибыль: " + splitNumber(r.all_profit) +
-                                "\nСебестоимость: " + splitNumber(r.china) +
+                                "\RКитай: " + splitNumber(r.china) +
                                 "\nРасходники: " + splitNumber(r.consumables) +
                                 "\nРеинвистиция: " + splitNumber(r.investment)
                                 , { parse_mode: 'HTML'}
@@ -291,7 +291,7 @@ function send_data_every_month(bot, users){
                             "\nСумма: " + splitNumber(all_sum) + 
                             "\nСебестоимость: " + splitNumber(all_cost) +
                             "\nПрибыль: " + splitNumber(all_profit) +
-                            "\nСебестоимость: " + splitNumber(china) +
+                            "\RКитай: " + splitNumber(china) +
                             "\nРасходники: " + splitNumber(china) +
                             "\nРеинвистиция: " + splitNumber(investment)
                             , { parse_mode: 'HTML'}
@@ -310,7 +310,7 @@ function send_data_every_month(bot, users){
                                     "\nСумма: " + splitNumber(r.all_sum)  + 
                                     "\nСебестоимость: " + splitNumber(r.all_cost) +
                                     "\nПрибыль: " + splitNumber(r.all_profit) +
-                                    "\nСебестоимость: " + splitNumber(r.china) +
+                                    "\RКитай: " + splitNumber(r.china) +
                                     "\nРасходники: " + splitNumber(r.consumables) +
                                     "\nРеинвистиция: " + splitNumber(r.investment)
                                     , { parse_mode: 'HTML'}
