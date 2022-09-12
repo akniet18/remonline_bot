@@ -37,7 +37,7 @@ bot.on('message', async (ctx)=>{
     if (/^[\d.,:]*$/.test(txt)){
         for (let l in users){
             if (users[l].uuid == ctx.chat.id){
-                ctx.reply('Вы уже ввели номер телефона.')
+                ctx.reply('Вы уже зарегистрировали номер' + [l])
                 return
             }
         }
