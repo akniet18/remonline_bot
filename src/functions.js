@@ -103,7 +103,7 @@ function get_this_month(){
     let lost_start = new Date(today.getFullYear(), today.getMonth()-1, 2)
     lost_start.setHours(0, 0, 0, 0)
     lost_start.setDate(1)
-    let lost_end = new Date(today.getFullYear(), today.getMonth(), 1)
+    let lost_end = new Date(today.getFullYear(), today.getMonth(), 0)
     lost_end.setHours(23, 59, 0, 0)
     console.log(lost_start, lost_end, lost_start.getTime(), lost_end.getTime())
     return {
