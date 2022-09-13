@@ -226,5 +226,5 @@ function get_warehouse(){
 
 
 bot.launch()
-// send_data_every_day(bot, users)
+send_data_every_day(bot, users)
 send_data_every_month(bot, users)
