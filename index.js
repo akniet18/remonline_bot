@@ -72,7 +72,7 @@ bot.on('message', async (ctx)=>{
                                 "\nСумма: " + splitNumber(r.all_sum)  + 
                                 "\nСебестоимость: " + splitNumber(r.all_cost) +
                                 "\nПрибыль: " + splitNumber(r.all_profit)+
-                                "\RКитай: " + splitNumber(r.china) +
+                                "\nКитай: " + splitNumber(r.china) +
                                 "\nРасходники: " + splitNumber(r.consumables) +
                                 "\nРеинвистиция: " + splitNumber(r.investment)
                             )   
@@ -81,36 +81,111 @@ bot.on('message', async (ctx)=>{
                 }
                 
             }else if ("director" in users[txt]){ // director
-                let all_sum = 0
-                let all_cost = 0
-                let all_profit = 0
-                let china = 0
-                let consumables =0
-                let investment = 0
+                let all_sum1 = 0, all_sum2= 0, all_sum3= 0, all_sum4= 0, all_sum5 = 0
+                let all_profit1= 0, all_profit2= 0, all_profit3= 0, all_profit4= 0, all_profit5 = 0
+                let china1= 0, china2= 0, china3= 0, china4= 0, china5 = 0
+                let all_cost1= 0, all_cost2= 0, all_cost3= 0, all_cost4= 0, all_cost5 = 0
+                let consumables1= 0, consumables2= 0, consumables3= 0, consumables4= 0, consumables5 = 0
+                let investment1= 0, investment2= 0, investment3= 0, investment4= 0, investment5 = 0
                 for (let k of warehouses){
                     if (k.title == "Склад 2" || k.title == "Склад" || k.title == "Склад товаров"){
                         
                     }else{
                         let a = get_retail_sale(k.id, true, false, false, api_token, date)
-                        a.then(r=>{
-                            all_sum += parseInt(r.all_sum)
-                            all_cost += parseInt(r.all_cost)
-                            all_profit += r.all_profit
-                            china += r.china
-                            consumables+= r.consumables
-                            investment += r.investment
-                        })
+                        if (k.title.includes('АЛА') ||  k.title.includes('Ала')){
+                            a.then(r=>{
+                                all_sum1 += parseInt(r.all_sum)
+                                all_cost1 += parseInt(r.all_cost)
+                                all_profit1 += r.all_profit
+                                china1 += r.china
+                                consumables1+= r.consumables
+                                investment1 += r.investment
+                            })
+                        }else if (k.title.includes('Туркестан')){
+                            a.then(r=>{
+                                all_sum2 += parseInt(r.all_sum)
+                                all_cost2 += parseInt(r.all_cost)
+                                all_profit2 += r.all_profit
+                                china2 += r.china
+                                consumables2+= r.consumables
+                                investment2 += r.investment
+                            })
+                        }else if(k.title.includes('КЗО')){
+                            a.then(r=>{
+                                all_sum3 += parseInt(r.all_sum)
+                                all_cost3 += parseInt(r.all_cost)
+                                all_profit3 += r.all_profit
+                                china3 += r.china
+                                consumables3+= r.consumables
+                                investment3 += r.investment
+                            })
+                        }else if(k.title.includes('ШЫМК')){
+                            a.then(r=>{
+                                all_sum4 += parseInt(r.all_sum)
+                                all_cost4 += parseInt(r.all_cost)
+                                all_profit4 += r.all_profit
+                                china4 += r.china
+                                consumables4 += r.consumables
+                                investment4 += r.investment
+                            })
+                        }else if(k.title.includes('Тараз')){
+                            a.then(r=>{
+                                all_sum5 += parseInt(r.all_sum)
+                                all_cost5 += parseInt(r.all_cost)
+                                all_profit5 += r.all_profit
+                                china5 += r.china
+                                consumables5+= r.consumables
+                                investment5 += r.investment
+                            })
+                        }
+                        
                     }
                 }
                 setTimeout(() => {
                     ctx.replyWithHTML(
-                        "<b><i>Все точки: "+ '\n' + date.today_s_d + "</i></b>"+
-                        "\nСумма: " + splitNumber(all_sum) + 
-                        "\nСебестоимость: " + splitNumber(all_cost) +
-                        "\nПрибыль: " + splitNumber(all_profit)+
-                        "\RКитай: " + splitNumber(china) +
-                        "\nРасходники: " + splitNumber(consumables) +
-                        "\nРеинвистиция: " + splitNumber(investment)
+                        "<b><i>Алматы: "+ '\n' + date.today_s_d + "</i></b>"+
+                        "\nСумма: " + splitNumber(all_sum1) + 
+                        "\nСебестоимость: " + splitNumber(all_cost1) +
+                        "\nПрибыль: " + splitNumber(all_profit1)+
+                        "\nКитай: " + splitNumber(china1) +
+                        "\nРасходники: " + splitNumber(consumables1) +
+                        "\nРеинвистиция: " + splitNumber(investment1)
+                    )
+                    ctx.replyWithHTML(
+                        "<b><i>Туркестан: "+ '\n' + date.today_s_d + "</i></b>"+
+                        "\nСумма: " + splitNumber(all_sum2) + 
+                        "\nСебестоимость: " + splitNumber(all_cost2) +
+                        "\nПрибыль: " + splitNumber(all_profit2)+
+                        "\nКитай: " + splitNumber(china2) +
+                        "\nРасходники: " + splitNumber(consumables2) +
+                        "\nРеинвистиция: " + splitNumber(investment2)
+                    )
+                    ctx.replyWithHTML(
+                        "<b><i>Кызылорда: "+ '\n' + date.today_s_d + "</i></b>"+
+                        "\nСумма: " + splitNumber(all_sum3) + 
+                        "\nСебестоимость: " + splitNumber(all_cost3) +
+                        "\nПрибыль: " + splitNumber(all_profit3)+
+                        "\nКитай: " + splitNumber(china3) +
+                        "\nРасходники: " + splitNumber(consumables3) +
+                        "\nРеинвистиция: " + splitNumber(investment3)
+                    )
+                    ctx.replyWithHTML(
+                        "<b><i>Шымкент: "+ '\n' + date.today_s_d + "</i></b>"+
+                        "\nСумма: " + splitNumber(all_sum4) + 
+                        "\nСебестоимость: " + splitNumber(all_cost4) +
+                        "\nПрибыль: " + splitNumber(all_profit4)+
+                        "\nКитай: " + splitNumber(china4) +
+                        "\nРасходники: " + splitNumber(consumables4) +
+                        "\nРеинвистиция: " + splitNumber(investment4)
+                    )
+                    ctx.replyWithHTML(
+                        "<b><i>Тараз: "+ '\n' + date.today_s_d + "</i></b>"+
+                        "\nСумма: " + splitNumber(all_sum5) + 
+                        "\nСебестоимость: " + splitNumber(all_cost5) +
+                        "\nПрибыль: " + splitNumber(all_profit5)+
+                        "\nКитай: " + splitNumber(china5) +
+                        "\nРасходники: " + splitNumber(consumables5) +
+                        "\nРеинвистиция: " + splitNumber(investment5)
                     )
                 }, 3000);
 
@@ -139,7 +214,7 @@ bot.on('message', async (ctx)=>{
                             "\nСумма: " + splitNumber(r.all_sum) + 
                             "\nСебестоимость: " + splitNumber(r.all_cost) +
                             "\nПрибыль: " + splitNumber(r.all_profit)+
-                            "\RКитай: " + splitNumber(r.china) +
+                            "\nКитай: " + splitNumber(r.china) +
                             "\nРасходники: " + splitNumber(r.consumables) +
                             "\nРеинвистиция: " + splitNumber(r.investment)
                         )   
@@ -166,7 +241,7 @@ bot.on('message', async (ctx)=>{
                         "\nСумма: " + splitNumber(r.all_sum) + 
                         "\nСебестоимость: " + splitNumber(r.all_cost) +
                         "\nПрибыль: " + splitNumber(r.all_profit)+
-                        "\RКитай: " + splitNumber(r.china) +
+                        "\nКитай: " + splitNumber(r.china) +
                         "\nРасходники: " + splitNumber(r.consumables) +
                         "\nРеинвистиция: " + splitNumber(r.investment)
                     )
