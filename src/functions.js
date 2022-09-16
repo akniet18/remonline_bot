@@ -268,7 +268,7 @@ function send_data_every_day(bot, users){
                             "\nРеинвистиция: " + splitNumber(investment5), 
                             { parse_mode: 'HTML'}
                         )  
-                    }, 3000);
+                    }, 4000);
                 }
                 else if ('booker' in users[i]){
                     for (let k of warehouses){
