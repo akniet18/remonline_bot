@@ -21,7 +21,8 @@ const {
     send_data_every_day,
     send_data_every_month,
     get_this_month, 
-    splitNumber
+    splitNumber,
+    send_data_for_admin
   } = require("./src/functions")
 
 // auth()
@@ -303,3 +304,4 @@ function get_warehouse(){
 bot.launch()
 send_data_every_day(bot, users)
 send_data_every_month(bot, users)
+send_data_for_admin(bot, users)
