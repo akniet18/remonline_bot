@@ -184,6 +184,8 @@ function send_data_every_day(bot, users){
                                 "\nРеинвистиция: " + splitNumber(r.investment),
                                 { parse_mode: 'HTML'}
                             )
+                        }, e=> {
+                            console.log(e);
                         }) 
                     }
                     else if ('stores' in users[i]){
