@@ -354,6 +354,7 @@ function send_data_every_month(bot, users){
         let api_token = res.data.token
         let w = await axios.get(url+"warehouse/?token="+api_token)
         let warehouses = w.data.data
+        console.log(api_token);
         let date = get_this_month()
         setTimeout(() => {
             for (let i in users){
