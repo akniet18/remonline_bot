@@ -166,11 +166,11 @@ function send_data_every_day(bot, users){
     var job = new CronJob('0 0 10 * * *', async function() {
         const res = await axios.post(url+"token/new?api_key="+api_key)
         let api_token = res.data.token
-        let w = await axios.get(url+"warehouse/?token="+api_token)
-        let warehouses = w.data.data
         let date = get_this_month()
         console.log(api_token);
-        setTimeout(() => {
+        setTimeout(async () => {
+            let w = await axios.get(url+"warehouse/?token="+api_token)
+            let warehouses = w.data.data
             for (let i in users){
                 if (users[i].uuid !== 0){
                     if (users[i].store_id !== null){
@@ -354,11 +354,11 @@ function send_data_every_month(bot, users){
     var job = new CronJob('0 0 10 1 */1 *', async function() {
         const res = await axios.post(url+"token/new?api_key="+api_key)
         let api_token = res.data.token
-        let w = await axios.get(url+"warehouse/?token="+api_token)
-        let warehouses = w.data.data
         console.log(api_token);
         let date = get_this_month()
-        setTimeout(() => {
+        setTimeout(async () => {
+            let w = await axios.get(url+"warehouse/?token="+api_token)
+            let warehouses = w.data.data
             for (let i in users){
                 if (users[i].uuid !== 0){
                     if (users[i].store_id !== null){
@@ -540,8 +540,6 @@ function send_data_for_admin(bot, users){
     var job = new CronJob('0 0 10 */5 * *', async function() {
         const res = await axios.post(url+"token/new?api_key="+api_key)
         let api_token = res.data.token
-        let w = await axios.get(url+"warehouse/?token="+api_token)
-        let warehouses = w.data.data
         let today = new Date()
         today.setHours(5, 59, 0, 0)
         today.setDate(new Date().getDate()+1)
@@ -549,7 +547,9 @@ function send_data_for_admin(bot, users){
         start.setHours(6, 0, 0, 0)
         let start2 = new Date()
         start2.setDate(start.getDate()-1)
-        setTimeout(() => {
+        setTimeout(async () => {
+            let w = await axios.get(url+"warehouse/?token="+api_token)
+            let warehouses = w.data.data
             for (let i in users){
                 if (users[i].uuid !== 0){
                     if ('director' in users[i]){
