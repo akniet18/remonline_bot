@@ -152,6 +152,7 @@ function get_this_month(){
     lost_start.setDate(1)
     let lost_end = new Date(today.getFullYear(), today.getMonth(), 1)
     lost_end.setHours(5, 59, 0, 0)
+    console.log(today);
     return {
             "today_start": today_start.getTime(), 'today': today.getTime(), "today_s_d": formatDate(today_start), "today_e_d": formatDate(today),
             'yesterday_start': yesterday_start.getTime(), 'yesterday_end': yesterday_end.getTime(), "yesterday_s_d": formatDate(yesterday_start),
@@ -168,6 +169,7 @@ function send_data_every_day(bot, users){
         let w = await axios.get(url+"warehouse/?token="+api_token)
         let warehouses = w.data.data
         let date = get_this_month()
+        console.log(api_token);
         setTimeout(() => {
             for (let i in users){
                 if (users[i].uuid !== 0){
